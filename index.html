@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Torneo Súper Ocho</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- Pantalla de clave -->
+  <div id="clavePantalla" class="pantalla">
+    <h1>Ingresar clave</h1>
+    <input type="password" id="claveInput" placeholder="Ingrese clave..." autofocus />
+    <button onclick="validarClave()">Ingresar</button>
+    <p id="claveError" class="error"></p>
+  </div>
+
+  <!-- Pantalla 1: Carga de jugadores -->
+  <div id="pantalla1" class="pantalla oculta">
+    <h1 class="titulo">Torneo Súper Ocho</h1>
+    <div class="recuadro">
+      <input type="text" id="nombreInput" placeholder="Ingrese nombre..." />
+      <button onclick="agregarNombre()">Agregar</button>
+      <ul id="listaNombres"></ul>
+    </div>
+    <button onclick="irAPantalla(2)">Siguiente</button>
+  </div>
+
+  <!-- Pantalla 2: Enfrentamientos -->
+  <div id="pantalla2" class="pantalla oculta">
+    <div class="recuadro" id="tablaPartidos"></div>
+    <div class="botones">
+      <button onclick="irAPantalla(1)">Atrás</button>
+      <button onclick="irAPantalla(3)">Adelante</button>
+    </div>
+  </div>
+
+  <!-- Pantalla 3: Tabla de posiciones -->
+  <div id="pantalla3" class="pantalla oculta">
+    <div class="recuadro" id="tablaPosiciones"></div>
+    <div class="botones">
+      <button onclick="irAPantalla(2)">Atrás</button>
+      <button onclick="irAPantalla(4)">Adelante</button>
+    </div>
+  </div>
+
+  <!-- Pantalla 4: Campeón -->
+  <div id="pantalla4" class="pantalla oculta">
+    <h2 id="campeonTexto" class="campeon"></h2>
+    <div class="botones">
+      <button onclick="irAPantalla(3)">Atrás</button>
+      <button onclick="resetearTodo()">Comenzar de nuevo</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
