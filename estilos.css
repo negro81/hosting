@@ -1,160 +1,67 @@
-/* Reset y básicos */
-* {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
-  background: #f9f9f9;
-  color: #222;
+  padding: 0;
 }
 
 header {
-  background-color: #004d99;
+  background-color: #007f3f;
   color: white;
   padding: 1rem;
   text-align: center;
-}
-
-header h1 {
-  margin: 0 0 0.5rem;
 }
 
 nav {
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
-.nav-btn {
-  background: #0066cc;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+nav button {
+  padding: 10px 15px;
+  background-color: white;
+  color: #007f3f;
+  border: 2px solid #007f3f;
   border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.nav-btn:hover {
-  background: #004d99;
-}
-
-.nav-btn.activa {
-  background: #003366;
+  cursor: pointer;
 }
 
 main {
-  max-width: 900px;
-  margin: 1rem auto;
   padding: 1rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
 }
 
-.seccion {
+.pantalla {
   display: none;
 }
 
-.seccion.activa {
+.pantalla.activa {
   display: block;
 }
 
-form {
-  margin-bottom: 1rem;
-}
-
-input[type="text"],
-input[type="time"] {
-  padding: 0.5rem;
-  margin: 0 0.5rem 0.5rem 0;
-  border-radius: 5px;
+#zonasGeneradas .zona {
+  margin-top: 1rem;
+  padding: 1rem;
   border: 1px solid #ccc;
-  min-width: 150px;
+  border-radius: 8px;
+  background-color: white;
 }
 
-button {
-  background: #007acc;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #005fa3;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-ul li {
-  background: #e6f0ff;
-  margin: 0.2rem 0;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-#listaCanchas p {
-  background: #cce0ff;
-  margin: 0.2rem 0;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-h3.zona-titulo {
-  color: #003366;
-  border-bottom: 2px solid #004d99;
-  padding-bottom: 0.3rem;
-  margin-top: 1rem;
-}
-
-#contenedorZonas > div,
-#llavesContainer > table {
-  margin-top: 1rem;
+#zonasGeneradas table {
   width: 100%;
-}
-
-#llavesContainer table {
   border-collapse: collapse;
-  width: 100%;
+  margin-top: 10px;
 }
 
-#llavesContainer th, #llavesContainer td {
-  border: 1px solid #004d99;
-  padding: 0.5rem;
+#zonasGeneradas th,
+#zonasGeneradas td {
+  border: 1px solid #ccc;
+  padding: 6px;
   text-align: center;
 }
 
-input.set-input {
-  width: 40px;
-  text-align: center;
-  margin: 0 3px;
-  font-weight: bold;
-  border: 1px solid #004d99;
-  border-radius: 3px;
-}
-
-input.set-input:focus {
-  outline-color: #004d99;
-}
-
-footer {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-#mensajeHorarios {
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: green;
+#zonasGeneradas th {
+  background-color: #e0f0e0;
 }
