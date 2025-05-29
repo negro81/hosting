@@ -3,55 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Torneo Súper Ocho</title>
+  <title>Torneo de Pádel</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <!-- Pantalla de clave -->
-  <div id="clavePantalla" class="pantalla">
-    <h1>Ingresar clave</h1>
-    <input type="password" id="claveInput" placeholder="Ingrese clave..." autofocus />
-    <button onclick="validarClave()">Ingresar</button>
-    <p id="claveError" class="error"></p>
-  </div>
+  <header>
+    <h1 id="nombreTorneo">Torneo de Pádel</h1>
+    <nav>
+      <button onclick="mostrarSeccion('inicio')">Inicio</button>
+      <button onclick="mostrarSeccion('canchas')">Canchas y Horarios</button>
+      <button onclick="mostrarSeccion('parejas')">Parejas</button>
+      <button onclick="mostrarSeccion('zonas')">Zonas</button>
+      <button onclick="mostrarSeccion('resultadosZonas')">Resultados Zonas</button>
+      <button onclick="mostrarSeccion('llaves')">Llaves Finales</button>
+      <button onclick="mostrarSeccion('resultadosLlaves')">Resultados Finales</button>
+      <button onclick="reiniciarTodo()">Reiniciar</button>
+    </nav>
+  </header>
 
-  <!-- Pantalla 1: Carga de jugadores -->
-  <div id="pantalla1" class="pantalla oculta">
-    <h1 class="titulo">Torneo Súper Ocho</h1>
-    <div class="recuadro">
-      <input type="text" id="nombreInput" placeholder="Ingrese nombre..." />
-      <button onclick="agregarNombre()">Agregar</button>
-      <ul id="listaNombres"></ul>
-    </div>
-    <button onclick="irAPantalla(2)">Siguiente</button>
-  </div>
+  <main>
+    <!-- Sección 1: Inicio -->
+    <section id="inicio" class="seccion activa">
+      <h2>Nombre del Torneo</h2>
+      <input type="text" id="inputNombreTorneo" placeholder="Ej: Torneo Apertura 2025" />
+      <button onclick="guardarNombreTorneo()">Guardar</button>
+    </section>
 
-  <!-- Pantalla 2: Enfrentamientos -->
-  <div id="pantalla2" class="pantalla oculta">
-    <div class="recuadro" id="tablaPartidos"></div>
-    <div class="botones">
-      <button onclick="irAPantalla(1)">Atrás</button>
-      <button onclick="irAPantalla(3)">Adelante</button>
-    </div>
-  </div>
+    <!-- Sección 2: Canchas y Horarios -->
+    <section id="canchas" class="seccion">
+      <h2>Canchas y Horarios Disponibles</h2>
+      <div>
+        <input type="text" id="nombreCancha" placeholder="Nombre de cancha" />
+        <button onclick="agregarCancha()">Agregar Cancha</button>
+      </div>
+      <div id="listaCanchas"></div>
+      <div>
+        <h3>Rango horario</h3>
+        <label>Desde: <input type="time" id="horaInicio" /></label>
+        <label>Hasta: <input type="time" id="horaFin" /></label>
+        <button onclick="guardarHorarios()">Guardar Horarios</button>
+      </div>
+    </section>
 
-  <!-- Pantalla 3: Tabla de posiciones -->
-  <div id="pantalla3" class="pantalla oculta">
-    <div class="recuadro" id="tablaPosiciones"></div>
-    <div class="botones">
-      <button onclick="irAPantalla(2)">Atrás</button>
-      <button onclick="irAPantalla(4)">Adelante</button>
-    </div>
-  </div>
+    <!-- Sección 3: Carga de Parejas -->
+    <section id="parejas" class="seccion">
+      <h2>Carga de Parejas</h2>
+      <input type="text" id="apellido1" placeholder="Apellido 1" />
+      <input type="text" id="apellido2" placeholder="Apellido 2" />
+      <button onclick="agregarPareja()">Agregar Pareja</button>
+      <ul id="listaParejas"></ul>
+    </section>
 
-  <!-- Pantalla 4: Campeón -->
-  <div id="pantalla4" class="pantalla oculta">
-    <h2 id="campeonTexto" class="campeon"></h2>
-    <div class="botones">
-      <button onclick="irAPantalla(3)">Atrás</button>
-      <button onclick="resetearTodo()">Comenzar de nuevo</button>
-    </div>
-  </div>
+    <!-- Sección 4: Zonas -->
+    <section id="zonas" class="seccion">
+      <h2>Zonas del Torneo</h2>
+      <button onclick="generarZonas()">Generar Zonas</button>
+      <div id="contenedorZonas"></div>
+    </section>
+
+    <!-- Sección 5: Resultados de Zonas -->
+    <section id="resultadosZonas" class="seccion">
+      <h2>Resultados por Zonas</h2>
+      <div id="resultadosZonasContainer"></div>
+    </section>
+
+    <!-- Sección 6: Llaves Finales -->
+    <section id="llaves" class="seccion">
+      <h2>Llaves Finales</h2>
+      <button onclick="generarLlaves()">Generar Llaves</button>
+      <div id="llavesContainer"></div>
+    </section>
+
+    <!-- Sección 7: Resultados Finales -->
+    <section id="resultadosLlaves" class="seccion">
+      <h2>Resultados de Llaves</h2>
+      <div id="resultadosLlavesContainer"></div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
